@@ -21,6 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _mapManger=[[BMKMapManager alloc]init];
+    BOOL ret=[_mapManger start:@"1D192DD75EE8B5F2059899C427F38E6D539EB3FC" generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed");
+    }
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
